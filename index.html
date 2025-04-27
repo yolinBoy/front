@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>国医秘传养生课</title>
+    <script src="https://weapppiccdn.yishihui.com/resources/jsLibrary/log_seed.js">
+    </script>
+    <!-- 配置 -->
+    <script>
+      const pqMsg = new PQMessage()
+      const { search } = window.location
+      const searchObj = new URLSearchParams(search)
+      const pqtId = searchObj.get('pqtId')
+      const CONFIG = {
+        qrCodeUrl: `./src/abc.png?time=${new Date()}`,
+        images: {
+          banner: './src/first.gif',
+          intro: './src/second.jpg',
+          feature1: './src/third.gif',
+          feature2: './src/four.gif',
+          arrow: './src/right.gif',
+          icon: './src/bottom-left.gif'
+        }
+      };
+    </script>
+
+    <!-- 微信配置 -->
+    <script>
+      document.addEventListener('WeixinJSBridgeReady', () => {
+        WeixinJSBridge.call('hideOptionMenu');
+      });
+    </script>
+
+    <style>
+      /* 重置样式 */
+      * {
+        margin: 0;
+        padding: 0;
+        user-select: none;
+      }
+      body {
+        background-color: #e9d59c;
+      }
+
+      /* 基础布局 */
+      .page {
+        max-width: 480px;
+        margin: 0 auto;
+        padding-bottom: 120px;
+      }
+
+      /* 通用样式 */
+      .img-fluid {
+        width: 100%;
+        display: block;
+      }
+
+      .text-center {
+        text-align: center;
+      }
+
+      .text-red {
+        color: #a6170f;
+      }
+
+      /* 主要内容区域 */
+      .qr-section {
+        margin: 20px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 8px;
+        animation: pulse-border 0.8s infinite alternate;
+      }
+
+      .qr-section__title {
+        font-size: 20px;
+        font-weight: bold;
+        margin: 4px;
+      }
+
+      .qr-section__tip {
+        font-size: 20px;
+        color: red;
+        margin: 4px;
+      }
+
+      .qr-section__code {
+        margin: 20px;
+        max-width: 60%;
+      }
+
+      .qr-section__guide {
+        font-size: 20px;
+        margin: 4px;
+      }
+
+      /* 底部浮动栏 */
+      .floating-bar {
+        position: fixed;
+        left: 0;
+        bottom: 20px;
+        width: 100%;
+        height: 80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .floating-bar__wrapper {
+        padding: 10px;
+        background-color: #fff;
+        max-width: 400px;
+        margin: 0 20px 20px;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .floating-bar__icon {
+        width: 60px;
+        height: 60px;
+        margin-right: 12px;
+        flex-shrink: 0;
+      }
+
+      .floating-bar__content {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+      }
+
+      .floating-bar__text {
+        flex-grow: 1;
+      }
+
+      .floating-bar__title {
+        display: block;
+        font-size: 24px;
+        font-weight: bold;
+        color: #a6170f;
+        margin-bottom: 4px;
+      }
+
+      .floating-bar__desc {
+        display: block;
+        font-size: 14px;
+        opacity: 0.8;
+      }
+
+      .floating-bar__arrow {
+        width: auto;
+        height: 50px;
+        animation: slide-right 0.2s infinite alternate;
+      }
+
+      .floating-bar__qr {
+        width: auto;
+        height: 90px;
+        margin-left: 20px;
+      }
+
+      /* 动画效果 */
+      @keyframes pulse-border {
+        0% {
+          box-shadow: 0 0 10px 10px rgba(255, 0, 0, 0.5);
+        }
+        100% {
+          box-shadow: 0 0 10px 10px rgba(0, 255, 0, 0.5);
+        }
+      }
+
+      @keyframes slide-right {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(15px);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="page">
+      <!-- 头部Banner -->
+      <header class="header">
+        <img class="img-fluid" src="./src/first.gif" alt="养生课程封面"/>
+        <img class="img-fluid" src="./src/second.jpg" alt="课程介绍"/>
+      </header>
+
+      <!-- 二维码扫描区域 -->
+      <section class="qr-section">
+        <h1 class="qr-section__title">0元入群领取中医调理养生课</h1>
+        <p class="qr-section__tip">长按下方二维码2秒钟</p>
+        <p class="qr-section__tip">选择【识别图中二维码】</p>
+        <img class="qr-section__code js-qr-code" alt="添加老师二维码"/>
+        <p class="qr-section__guide">↑↑ 长按上方二维码 ↑↑</p>
+        <p class="qr-section__guide">添加老师好友</p>
+      </section>
+
+      <!-- 课程特色展示 -->
+      <section class="features">
+        <img class="img-fluid" src="./src/third.gif" alt="课程特色1"/>
+        <img class="img-fluid" src="./src/four.gif" alt="课程特色2"/>
+      </section>
+
+      <!-- 底部浮动栏 -->
+      <div class="floating-bar">
+        <div class="floating-bar__wrapper">
+          <img class="floating-bar__icon" src="./src/bottom-left.gif" alt="免费标志"/>
+          <div class="floating-bar__content">
+            <div class="floating-bar__text">
+              <span class="floating-bar__title">0元领取</span>
+              <span class="floating-bar__desc">长按右侧二维码领取</span>
+            </div>
+            <img class="floating-bar__arrow" src="./src/right.gif" alt="指示箭头"/>
+            <img class="floating-bar__qr js-qr-code" alt="领取二维码"/>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 业务逻辑 -->
+    <script>
+      class QRCodeManager {
+        constructor(config) {
+          this.config = config;
+          this.startTime = Date.now();
+          this.init();
+        }
+
+        init() {
+          document.addEventListener('DOMContentLoaded', () => {
+            this.initQRCodes();
+            this.bindEvents();
+          });
+        }
+
+        initQRCodes() {
+          const qrCodes = document.querySelectorAll('.js-qr-code');
+          qrCodes.forEach(qr => {
+            qr.src = this.config.qrCodeUrl;
+          });
+        }
+
+        bindEvents() {
+          const qrCodes = document.querySelectorAll('.js-qr-code');
+          qrCodes.forEach(qr => {
+            let pressTimer;
+
+            qr.addEventListener('touchstart', () => {
+              pressTimer = setTimeout(() => {
+                const duration = Date.now() - this.startTime;
+                this.handleLongPress(duration);
+              }, 300);
+            });
+
+            qr.addEventListener('touchend', () => {
+              clearTimeout(pressTimer);
+            });
+          });
+        }
+
+        handleLongPress(duration) {
+          pqMsg.sendMsg({
+            appId: 'pqAdOpXSQlu4v9',
+            events: [{
+              pqtId,
+              bizId: '',
+              eventType: 10005,
+              eventTime: new Date().getTime(),
+              user: {
+                uid: '',
+                gender: '',
+                age: '',
+                phone: '',
+                address: '',
+                value: {}
+              }
+            }]
+          })
+        }
+      }
+
+      // 初始化
+      new QRCodeManager(CONFIG);
+    </script>
+  </body>
+</html>
