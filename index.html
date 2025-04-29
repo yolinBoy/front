@@ -5,23 +5,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>国医秘传养生课</title>
-    <script src="https://weapppiccdn.yishihui.com/resources/jsLibrary/log_seed.js">
     </script>
     <!-- 配置 -->
     <script>
-      const pqMsg = new PQMessage()
-      const { search } = window.location
-      const searchObj = new URLSearchParams(search)
-      const pqtId = searchObj.get('pqtId')
       const CONFIG = {
-        qrCodeUrl: `./src/abc.png?time=${new Date()}`,
+        qrCodeUrl: `https://www.kuainiaoxianfei.cn/src/abc.png?time=${new Date()}`,
         images: {
-          banner: './src/first.gif',
-          intro: './src/second.jpg',
-          feature1: './src/third.gif',
-          feature2: './src/four.gif',
-          arrow: './src/right.gif',
-          icon: './src/bottom-left.gif'
+          banner: 'https://www.kuainiaoxianfei.cn/src/first.gif',
+          intro: 'https://www.kuainiaoxianfei.cn/src/second.jpg',
+          feature1: 'https://www.kuainiaoxianfei.cn/src/third.gif',
+          feature2: 'https://www.kuainiaoxianfei.cn/src/four.gif',
+          arrow: 'https://www.kuainiaoxianfei.cn/src/right.gif',
+          icon: 'https://www.kuainiaoxianfei.cn/src/bottom-left.gif'
         }
       };
     </script>
@@ -32,6 +27,7 @@
         WeixinJSBridge.call('hideOptionMenu');
       });
     </script>
+    <script defer src="https://static2.xiaoniangao.cn/xng/ad/v2.0.0.js" />
 
     <style>
       /* 重置样式 */
@@ -189,8 +185,8 @@
     <div class="page">
       <!-- 头部Banner -->
       <header class="header">
-        <img class="img-fluid" src="./src/first.gif" alt="养生课程封面"/>
-        <img class="img-fluid" src="./src/second.jpg" alt="课程介绍"/>
+        <img class="img-fluid" src="https://www.kuainiaoxianfei.cn/src/first.gif" alt="养生课程封面"/>
+        <img class="img-fluid" src="https://www.kuainiaoxianfei.cn/src/second.jpg" alt="课程介绍"/>
       </header>
 
       <!-- 二维码扫描区域 -->
@@ -198,28 +194,28 @@
         <h1 class="qr-section__title">0元入群领取中医调理养生课</h1>
         <p class="qr-section__tip">长按下方二维码2秒钟</p>
         <p class="qr-section__tip">选择【识别图中二维码】</p>
-        <img class="qr-section__code js-qr-code" alt="添加老师二维码"/>
+        <img class="qr-section__code js-qr-code qr-code" alt="添加老师二维码" />
         <p class="qr-section__guide">↑↑ 长按上方二维码 ↑↑</p>
         <p class="qr-section__guide">添加老师好友</p>
       </section>
 
       <!-- 课程特色展示 -->
       <section class="features">
-        <img class="img-fluid" src="./src/third.gif" alt="课程特色1"/>
-        <img class="img-fluid" src="./src/four.gif" alt="课程特色2"/>
+        <img class="img-fluid" src="https://www.kuainiaoxianfei.cn/src/third.gif" alt="课程特色1"/>
+        <img class="img-fluid" src="https://www.kuainiaoxianfei.cn/src/four.gif" alt="课程特色2"/>
       </section>
 
       <!-- 底部浮动栏 -->
       <div class="floating-bar">
         <div class="floating-bar__wrapper">
-          <img class="floating-bar__icon" src="./src/bottom-left.gif" alt="免费标志"/>
+          <img class="floating-bar__icon" src="https://www.kuainiaoxianfei.cn/src/bottom-left.gif" alt="免费标志"/>
           <div class="floating-bar__content">
             <div class="floating-bar__text">
               <span class="floating-bar__title">0元领取</span>
               <span class="floating-bar__desc">长按右侧二维码领取</span>
             </div>
-            <img class="floating-bar__arrow" src="./src/right.gif" alt="指示箭头"/>
-            <img class="floating-bar__qr js-qr-code" alt="领取二维码"/>
+            <img class="floating-bar__arrow" src="https://www.kuainiaoxianfei.cn/src/right.gif" alt="指示箭头"/>
+            <img class="floating-bar__qr js-qr-code qr-code" alt="领取二维码"/>
           </div>
         </div>
       </div>
@@ -237,7 +233,6 @@
         init() {
           document.addEventListener('DOMContentLoaded', () => {
             this.initQRCodes();
-            this.bindEvents();
           });
         }
 
@@ -246,44 +241,6 @@
           qrCodes.forEach(qr => {
             qr.src = this.config.qrCodeUrl;
           });
-        }
-
-        bindEvents() {
-          const qrCodes = document.querySelectorAll('.js-qr-code');
-          qrCodes.forEach(qr => {
-            let pressTimer;
-
-            qr.addEventListener('touchstart', () => {
-              pressTimer = setTimeout(() => {
-                const duration = Date.now() - this.startTime;
-                this.handleLongPress(duration);
-              }, 300);
-            });
-
-            qr.addEventListener('touchend', () => {
-              clearTimeout(pressTimer);
-            });
-          });
-        }
-
-        handleLongPress(duration) {
-          pqMsg.sendMsg({
-            appId: 'pqAdOpXSQlu4v9',
-            events: [{
-              pqtId,
-              bizId: '',
-              eventType: 10005,
-              eventTime: new Date().getTime(),
-              user: {
-                uid: '',
-                gender: '',
-                age: '',
-                phone: '',
-                address: '',
-                value: {}
-              }
-            }]
-          })
         }
       }
 
