@@ -9,14 +9,14 @@
     <!-- 配置 -->
     <script>
       const CONFIG = {
-        qrCodeUrl: `https://www.kuainiaoxianfei.cn/src/abc.png?time=${new Date()}`,
+        qrCodeUrl: `src/abc.png?time=${new Date()}`,
         images: {
-          banner: 'https://www.kuainiaoxianfei.cn/src/first.gif',
-          intro: 'https://www.kuainiaoxianfei.cn/src/second.jpg',
-          feature1: 'https://www.kuainiaoxianfei.cn/src/third.gif',
-          feature2: 'https://www.kuainiaoxianfei.cn/src/four.gif',
-          arrow: 'https://www.kuainiaoxianfei.cn/src/right.gif',
-          icon: 'https://www.kuainiaoxianfei.cn/src/bottom-left.gif'
+          banner: 'src/first.gif',
+          intro: 'src/second.jpg',
+          feature1: 'src/third.gif',
+          feature2: 'src/four.gif',
+          arrow: 'src/right.gif',
+          icon: 'src/bottom-left.gif'
         }
       };
     </script>
@@ -185,8 +185,9 @@
     <div class="page">
       <!-- 头部Banner -->
       <header class="header">
-        <img class="img-fluid" src="https://www.kuainiaoxianfei.cn/src/first.gif" alt="养生课程封面"/>
-        <img class="img-fluid" src="https://www.kuainiaoxianfei.cn/src/second.jpg" alt="课程介绍"/>
+        <img class="img-fluid" src="src/first.jpg" alt="养生课程封面"/>
+        <img class="img-fluid" src="src/second.jpg" alt="课程介绍1"/>
+        <img class="img-fluid" src="src/third.jpg" alt="自检说明"/>
       </header>
 
       <!-- 二维码扫描区域 -->
@@ -201,20 +202,23 @@
 
       <!-- 课程特色展示 -->
       <section class="features">
-        <img class="img-fluid" src="https://www.kuainiaoxianfei.cn/src/third.gif" alt="课程特色1"/>
-        <img class="img-fluid" src="https://www.kuainiaoxianfei.cn/src/four.gif" alt="课程特色2"/>
+        <img class="img-fluid" src="src/four.jpg" alt="课程特色"/>
+        <img class="img-fluid" src="src/five.jpg" alt="课程介绍"/>
+        <img class="img-fluid" src="src/six.jpg" alt="真人老师线上教学"/>
+        <img class="img-fluid" src="src/seven.jpg" alt="线上社群指导"/>
+        <img class="img-fluid" src="src/eight.jpg" alt="报名学习流程"/>
       </section>
 
       <!-- 底部浮动栏 -->
       <div class="floating-bar">
         <div class="floating-bar__wrapper">
-          <img class="floating-bar__icon" src="https://www.kuainiaoxianfei.cn/src/bottom-left.gif" alt="免费标志"/>
+          <img class="floating-bar__icon" src="src/bottom-left.gif" alt="免费标志"/>
           <div class="floating-bar__content">
             <div class="floating-bar__text">
               <span class="floating-bar__title">0元领取</span>
               <span class="floating-bar__desc">长按右侧二维码领取</span>
             </div>
-            <img class="floating-bar__arrow" src="https://www.kuainiaoxianfei.cn/src/right.gif" alt="指示箭头"/>
+            <img class="floating-bar__arrow" src="src/right.gif" alt="指示箭头"/>
             <img class="floating-bar__qr js-qr-code qr-code" alt="领取二维码"/>
           </div>
         </div>
